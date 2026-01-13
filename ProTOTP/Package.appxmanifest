@@ -6,9 +6,9 @@
     xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"
     IgnorableNamespaces="uap mp uap5">
 
-  <Identity Name="ProTOTP.App" Publisher="CN=ProTOTP" Version="1.0.0.0" ProcessorArchitecture="x86" />
+  <Identity Name="ProTOTP.App" Publisher="CN=ProTOTP" Version="1.0.0.0" ProcessorArchitecture="x64" />
 
-  <mp:PhoneIdentity PhoneProductId="ProTOTP.App" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <mp:PhoneIdentity PhoneProductId="E26AF86A-0C66-4D61-A886-24027E3A6ACF" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
 
   <Properties>
     <DisplayName>ProTOTP</DisplayName>

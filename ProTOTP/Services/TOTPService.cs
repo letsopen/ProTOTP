@@ -9,6 +9,7 @@ using Windows.Storage;
 using Newtonsoft.Json;
 using ProTOTP.Models;
 using Windows.UI.Xaml;
+using ProTOTP.Services.Internal; // 引用TimerManager的正确命名空间
 
 namespace ProTOTP.Services
 {
@@ -137,17 +138,17 @@ namespace ProTOTP.Services
 
         public void StopAllTimers()
         {
-            TimerManager.Instance.StopAllTimers();
+            Internal.TimerManager.Instance.StopAllTimers();
         }
 
         private void StartAccountTimer(TOTPAccount account)
         {
-            TimerManager.Instance.StartTimer(account);
+            Internal.TimerManager.Instance.StartTimer(account);
         }
 
         private void StopAccountTimer(TOTPAccount account)
         {
-            TimerManager.Instance.StopTimer(account);
+            Internal.TimerManager.Instance.StopTimer(account);
         }
 
         public string GenerateTOTP(string secret, string algorithm, int timeStep)

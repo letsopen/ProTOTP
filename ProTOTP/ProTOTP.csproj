@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="Models\TOTPAccount.cs" />
     <Compile Include="Services\TOTPService.cs" />
+    <Compile Include="Services\TimerManager.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\AddAccountPage.xaml.cs">

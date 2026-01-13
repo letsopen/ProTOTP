@@ -8,11 +8,11 @@ using ProTOTP.ViewModels;
 
 namespace ProTOTP
 {
-    public sealed partial class MainPage : Page, INotifyPropertyChanged
+    public sealed partial class MainPage : Page
     {
         private MainPageViewModel _viewModel;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        // 注意：不需要实现INotifyPropertyChanged，因为MainPage不需要通知属性更改
 
         public MainPage()
         {
@@ -22,10 +22,10 @@ namespace ProTOTP
             AccountsListView.ItemsSource = _viewModel.Accounts;
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            _viewModel.LoadAccounts();
+            await _viewModel.LoadAccounts();
         }
 
         private void AddAccountButton_Click(object sender, RoutedEventArgs e)
