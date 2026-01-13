@@ -8,7 +8,7 @@ x86/
 build/
 bld/
 [Bb]in/
-[Oo]bj/
+**/[Oo]bj/
 
 # Visual Studio files
 .vs/
