@@ -1,5 +1,5 @@
 # Build results
-ProTOTP/[Dd]ebug/
+[Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
@@ -7,8 +7,8 @@ x64/
 x86/
 build/
 bld/
-ProTOTP/[Bb]in/
-ProTOTP/[Oo]bj/
+**/[Bb]in/
+**/[Oo]bj/
 
 # Visual Studio files
 .vs/
