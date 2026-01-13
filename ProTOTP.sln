@@ -15,6 +15,7 @@ Global
 		{E26AF86A-0C66-4D61-A886-24027E3A6ACF}.Debug|x64.Deploy.0 = Debug|x64
 		{E26AF86A-0C66-4D61-A886-24027E3A6ACF}.Release|x64.ActiveCfg = Release|x64
 		{E26AF86A-0C66-4D61-A886-24027E3A6ACF}.Release|x64.Build.0 = Release|x64
+		{E26AF86A-0C66-4D61-A886-24027E3A6ACF}.Release|x64.Deploy.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
