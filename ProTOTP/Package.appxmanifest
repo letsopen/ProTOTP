@@ -30,11 +30,15 @@
       <uap:VisualElements
         DisplayName="ProTOTP"
         Description="ProTOTP"
-        Square150x150Logo="Assets\Square150x150Logo.scale-200.png"
-        Square44x44Logo="Assets\Square44x44Logo.scale-200.png"
+        Square150x150Logo="Assets\logo.png"
+        Square44x44Logo="Assets\logo.png"
         BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.scale-200.png" />
-        <uap:SplashScreen Image="Assets\SplashScreen.scale-200.png" />
+        <uap:DefaultTile Wide310x150Logo="Assets\logo.png" >
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo"/>
+            <uap:ShowOn Tile="wide310x150Logo"/>
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile >
       </uap:VisualElements>
     </Application>
   </Applications>
