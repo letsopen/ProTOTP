@@ -10,6 +10,7 @@ using ProTOTP.ViewModels;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Core;
 
 namespace ProTOTP
 {
@@ -64,6 +65,16 @@ namespace ProTOTP
                 };
                 timer.Start();
             }
+        }
+
+        private void CodeTextBlock_PointerEntered(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        {
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
+        }
+
+        private void CodeTextBlock_PointerExited(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        {
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
 
         private async void DeleteAccountButton_Click(object sender, RoutedEventArgs e)
