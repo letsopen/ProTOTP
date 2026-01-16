@@ -83,6 +83,7 @@ namespace ProTOTP.Services.Internal
 
         private void UpdateAccountCode(TOTPAccount account)
         {
+            bool wasInRedZone = account.TimeRemainingPercentage <= 33; // 检查之前是否在红色区域
             try
             {
                 // 计算TOTP码
