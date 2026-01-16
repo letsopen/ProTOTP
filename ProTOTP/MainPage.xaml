@@ -55,11 +55,12 @@
                                            Foreground="{Binding CodeTextColor, Converter={StaticResource StringToColorConverter}}"
                                            Tapped="CodeTextBlock_Tapped" 
                                            PointerEntered="CodeTextBlock_PointerEntered" 
-                                           PointerExited="CodeTextBlock_PointerExited" />
+                                           PointerExited="CodeTextBlock_PointerExited" 
+                                           IsHitTestVisible="True" Style="{x:Null}" />
                                 <ProgressBar Grid.Row="2" x:Name="TimeProgressBar" Value="{Binding TimeRemainingPercentage}" Maximum="100" 
                                              Height="4" Margin="0,5,0,0">
                                     <ProgressBar.Foreground>
-                                        <SolidColorBrush Color="{Binding ProgressBarColor, Converter={StaticResource StringToColorConverter}}" />
+                                        <SolidColorBrush Color="{Binding ProgressBarColor, Converter={StaticResource StringToColorConverter}, ConverterParameter='Color'}" />
                                     </ProgressBar.Foreground>
                                 </ProgressBar>
                             </Grid>
