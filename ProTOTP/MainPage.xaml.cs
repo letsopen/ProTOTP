@@ -39,7 +39,7 @@ namespace ProTOTP
             Frame.Navigate(typeof(ProTOTP.Views.AddAccountPage));
         }
 
-        private async void CodeTextBlock_Tapped(object sender, TappedRoutedEventArgs e)
+        private void CodeTextBlock_Tapped(object sender, TappedRoutedEventArgs e)
         {
             var textBlock = sender as TextBlock;
             var account = textBlock.DataContext as Models.TOTPAccount;
