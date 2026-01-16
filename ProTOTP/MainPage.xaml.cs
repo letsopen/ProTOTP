@@ -77,17 +77,52 @@ namespace ProTOTP
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
 
-        private async void DeleteAccountButton_Click(object sender, RoutedEventArgs e)
+        private async void AccountItem_RightTapped(object sender, Windows.UI.Xaml.Input.RightTappedRoutedEventArgs e)
         {
-            var button = sender as Button;
-            var account = button.Tag as Models.TOTPAccount;
+            var grid = sender as Grid;
+            var account = grid.Tag as Models.TOTPAccount;
             
-            bool result = await _viewModel.RemoveAccountAsync(account);
-            if (result)
+            if (account != null)
             {
-                StatusTextBlock.Text = $"已删除账户: {account.AccountName}";
+                var dialog = new ContentDialog()
+                {
+                    Title = "账户操作",
+                    Content = "请选择要进行的操作",
+                    PrimaryButtonText = "编辑",
+                    SecondaryButtonText = "删除",
+                    CloseButtonText = "取消"
+                };
+                
+                var result = await dialog.ShowAsync();
+                
+                if (result == ContentDialogResult.Primary)
+                {
+                    // 这里可以添加编辑账户的逻辑
+                    StatusTextBlock.Text = $"编辑账户: {account.AccountName}";
+                }
+                else if (result == ContentDialogResult.Secondary)
+                {
+                    bool deleteResult = await _viewModel.RemoveAccountAsync(account);
+                    if (deleteResult)
+                    {
+                        StatusTextBlock.Text = $"已删除账户: {account.AccountName}";
+                    }
+                }
             }
         }
+
+        // 旧的删除按钮点击事件已废弃，使用长按菜单替代
+        // private async void DeleteAccountButton_Click(object sender, RoutedEventArgs e)
+        // {
+        //     var button = sender as Button;
+        //     var account = button.Tag as Models.TOTPAccount;
+        //     
+        //     bool result = await _viewModel.RemoveAccountAsync(account);
+        //     if (result)
+        //     {
+        //         StatusTextBlock.Text = $"已删除账户: {account.AccountName}";
+        //     }
+        // }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
