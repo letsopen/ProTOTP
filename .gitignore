@@ -7,9 +7,9 @@ x64/
 x86/
 build/
 bld/
-**/[Bb]in/
-**/[Oo]bj/
-**/BundleArtifacts/
+[Bb]in/
+[Oo]bj/
+BundleArtifacts/
 
 # Visual Studio files
 .vs/
