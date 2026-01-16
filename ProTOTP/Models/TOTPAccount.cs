@@ -9,7 +9,6 @@ namespace ProTOTP.Models
         private string _currentCode;
         private double _timeRemainingPercentage;
         private string _progressBarColor = "Green";
-        private string _codeTextColor = "Green";
 
         public string Id { get; set; } = Guid.NewGuid().ToString();
         public string AccountName { get; set; }
@@ -43,17 +42,14 @@ namespace ProTOTP.Models
                 if (value > 66)
                 {
                     ProgressBarColor = "Green";
-                    CodeTextColor = "Green";
                 }
                 else if (value > 33)
                 {
                     ProgressBarColor = "Orange";
-                    CodeTextColor = "Orange";
                 }
                 else
                 {
                     ProgressBarColor = "Red";
-                    CodeTextColor = "Red";
                 }
             }
         }
@@ -66,17 +62,6 @@ namespace ProTOTP.Models
             {
                 _progressBarColor = value;
                 OnPropertyChanged(nameof(ProgressBarColor));
-            }
-        }
-
-        [JsonIgnore]
-        public string CodeTextColor
-        {
-            get => _codeTextColor;
-            set
-            {
-                _codeTextColor = value;
-                OnPropertyChanged(nameof(CodeTextColor));
             }
         }
 
