@@ -97,8 +97,8 @@ namespace ProTOTP
                 
                 if (result == ContentDialogResult.Primary)
                 {
-                    // 这里可以添加编辑账户的逻辑
-                    StatusTextBlock.Text = $"编辑账户: {account.AccountName}";
+                    // 导航到编辑页面
+                    Frame.Navigate(typeof(ProTOTP.Views.EditAccountPage), account);
                 }
                 else if (result == ContentDialogResult.Secondary)
                 {
