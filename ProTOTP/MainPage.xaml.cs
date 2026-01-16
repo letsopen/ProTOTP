@@ -3,8 +3,13 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
 using ProTOTP.ViewModels;
+using Windows.ApplicationModel.DataTransfer;
+using Windows.UI;
+using Windows.UI.Xaml.Media;
 
 namespace ProTOTP
 {
@@ -31,6 +36,34 @@ namespace ProTOTP
         private void AddAccountButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(ProTOTP.Views.AddAccountPage));
+        }
+
+        private async void CodeTextBlock_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            var textBlock = sender as TextBlock;
+            var account = textBlock.DataContext as Models.TOTPAccount;
+            
+            if (!string.IsNullOrEmpty(account?.CurrentCode))
+            {
+                var dataPackage = new DataPackage();
+                dataPackage.SetText(account.CurrentCode);
+                Clipboard.SetContent(dataPackage);
+                
+                StatusTextBlock.Text = "验证码已复制到剪贴板";
+                
+                // 临时改变状态文本颜色以提供视觉反馈
+                StatusTextBlock.Foreground = new SolidColorBrush(Colors.Green);
+                
+                // 重置状态文本颜色
+                var timer = new DispatcherTimer();
+                timer.Interval = TimeSpan.FromSeconds(2);
+                timer.Tick += (s, args) =>
+                {
+                    StatusTextBlock.Foreground = new SolidColorBrush(Colors.Black);
+                    timer.Stop();
+                };
+                timer.Start();
+            }
         }
 
         private async void DeleteAccountButton_Click(object sender, RoutedEventArgs e)
