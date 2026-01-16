@@ -9,6 +9,7 @@ build/
 bld/
 **/[Bb]in/
 **/[Oo]bj/
+**/BundleArtifacts/
 
 # Visual Studio files
 .vs/
